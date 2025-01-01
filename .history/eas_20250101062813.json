@@ -4,7 +4,7 @@
     "appVersionSource": "remote"
   },
   "build": {
-    "preview": {
+     "preview": {
       "android": {
         "buildType": "apk"
       }
@@ -22,12 +22,6 @@
     },
     "production": {
       "autoIncrement": true
-    },
-    "real-estate": {
-      "android": {
-        "buildType": "app-bundle",
-        "gradleCommand": ":app:assembleRealEstateRelease"
-      }
     }
   },
   "submit": {

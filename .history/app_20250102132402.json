@@ -17,9 +17,7 @@
         "backgroundColor": "#ffffff"
       },
       "package": "com.celebration.linkconn",
-      "runtimeVersion": {
-        "policy": "appVersion"
-      }
+      
     },
     "plugins": [
       "expo-router",

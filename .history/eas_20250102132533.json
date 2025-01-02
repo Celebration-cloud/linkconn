@@ -18,7 +18,7 @@
       "developmentClient": true
     },
     "preview4": {
-      "channel": "master",
+       "channel": "staging",
       "distribution": "internal"
     },
     "production": {

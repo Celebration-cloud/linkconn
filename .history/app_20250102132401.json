@@ -16,10 +16,7 @@
         "foregroundImage": "./assets/images/linkconn-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.celebration.linkconn",
-      "runtimeVersion": {
-        "policy": "appVersion"
-      }
+      "package": "com.celebration.linkconn"
     },
     "plugins": [
       "expo-router",

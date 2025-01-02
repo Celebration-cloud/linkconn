@@ -2,15 +2,16 @@
   "expo": {
     "name": "Linkconn",
     "slug": "linkconn",
-    "version": "1.0.1",
+    "version": "1.0.0",
     "orientation": "portrait",
     "platforms": [
-      "android", "ios"
+      "android"
     ],
     "icon": "./assets/images/linkconn-icon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
+    // "updates": {"fallbackToCacheTimeout": 0},
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/linkconn-icon.png",
@@ -41,13 +42,6 @@
         "projectId": "d03987aa-aeec-403f-a258-81d75b604cd9"
       }
     },
-    "owner": "celebration",
-    "runtimeVersion": {
-      "policy": "appVersion"
-    },
-    "updates": {
-      "url": "https://u.expo.dev/d03987aa-aeec-403f-a258-81d75b604cd9"
-    },
-    "ios": {}
+    "owner": "celebration"
   }
 }

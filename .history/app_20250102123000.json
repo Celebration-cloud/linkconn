@@ -2,10 +2,10 @@
   "expo": {
     "name": "Linkconn",
     "slug": "linkconn",
-    "version": "1.0.1",
+    "version": "1.0.0",
     "orientation": "portrait",
     "platforms": [
-      "android", "ios"
+      "android", i
     ],
     "icon": "./assets/images/linkconn-icon.png",
     "scheme": "myapp",

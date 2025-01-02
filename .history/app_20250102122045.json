@@ -11,7 +11,7 @@
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
-    "updates": {"fallbackToCacheTimeout": 0},
+    "updates": {"fallbackToCacheTimeout": },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/linkconn-icon.png",

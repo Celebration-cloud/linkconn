@@ -5,7 +5,8 @@
     "version": "1.0.2",
     "orientation": "portrait",
     "platforms": [
-      "android", "ios"
+      "android",
+      "ios"
     ],
     "icon": "./assets/images/linkconn-icon.png",
     "scheme": "myapp",
@@ -31,7 +32,8 @@
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
-      ]
+      ],
+      "expo-font"
     ],
     "experiments": {
       "typedRoutes": true

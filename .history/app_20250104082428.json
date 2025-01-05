@@ -1,0 +1,59 @@
+{
+  "expo": {
+    "name": "Linkconn",
+    "slug": "linkconn",
+    "version": "1.0.3",
+    "orientation": "portrait",
+    "platforms": [
+      "android",
+      "ios"
+    ],
+    "icon": "./assets/images/linkconn-icon.png",
+    "scheme": "myapp",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/linkconn-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.celebration.linkconn",
+      "runtimeVersion": {
+        "policy": "appVersion"
+      }
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/linkconn-icon.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#ffffff"
+        }
+      ],
+      "expo-font"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "d03987aa-aeec-403f-a258-81d75b604cd9"
+      }
+    },
+    "owner": "celebration",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "perm"
+    "updates": {
+      "url": "https://u.expo.dev/d03987aa-aeec-403f-a258-81d75b604cd9"
+    },
+    "ios": {}
+  }
+}

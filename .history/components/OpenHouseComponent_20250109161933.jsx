@@ -1,6 +1,6 @@
 import { Tab, TabView } from "@rneui/base";
 import React from "react";
-import { View, Text, Button, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Themed, Button, StyleSheet, TouchableOpacity } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 import TabItem from "./TabItem"
 import { Dimensions } from "react-native";
@@ -28,8 +28,8 @@ const OpenHouseComponent = () => {
        
       ),
     },
-    { content: <ThemedText>Schools Information</ThemedText> },
-    { content: <ThemedText>Shop & Eat Information</ThemedText> },
+    { content: <Themed>Schools Information</Themed> },
+    { content: <Themed>Shop & Eat Information</Themed> },
   ];
 
   return (

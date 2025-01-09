@@ -1,6 +1,6 @@
 import { Tab, TabView } from "@rneui/base";
 import React from "react";
-import { View, Text, Button, StyleSheet, TouchableOpacity } from "react-native";
+import { View, ThemedText, Button, StyleSheet, TouchableOpacity } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 import TabItem from "./TabItem"
 import { Dimensions } from "react-native";

@@ -8,8 +8,6 @@ import { Stack, useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import MapView, { Marker } from 'react-native-maps';
 import OpenHouseComponent from '../../../components/OpenHouseComponent';
-import ProfileCard from '../../../components/ProfileCard';
-import DetailComponent from '../../../components/DetailComponent';
 const property = {
   title: "Beautiful Apartment",
   price: "$1500/month",
@@ -75,8 +73,6 @@ const DetailsScreen = () => {
             {property.description}
           </ThemedText>
         </ThemedView>
-        <DetailComponent/>
-        <ProfileCard/>
         <OpenHouseComponent />
         <ThemedView style={{ paddingHorizontal: 15, gap: 10 }}>
           <ThemedText style={styles.openHouseHeader}>Open House</ThemedText>
@@ -85,7 +81,19 @@ const DetailsScreen = () => {
           <Button title="See Virtual Tour" radius="lg" onPress={() => {}} />
           <ThemedView style={styles.buttonContainer}>
             <Button
-              title="Chat with Agent"
+              title="Call"
+              buttonStyle={styles.btn}
+              radius="lg"
+              onPress={() => {}}
+            />
+            <Button
+              title="Message"
+              buttonStyle={styles.btn}
+              radius="lg"
+              onPress={() => {}}
+            />
+            <Button
+              title="Tour"
               buttonStyle={styles.btn}
               radius="lg"
               onPress={() => {}}
@@ -138,6 +146,6 @@ const styles = StyleSheet.create({
     paddingTop: 15
   },
   btn: {
-    width: Dimensions.get("window").width /1.1
+    width: 100
   },
 });

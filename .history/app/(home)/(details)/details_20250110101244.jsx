@@ -9,7 +9,6 @@ import { Ionicons } from '@expo/vector-icons';
 import MapView, { Marker } from 'react-native-maps';
 import OpenHouseComponent from '../../../components/OpenHouseComponent';
 import ProfileCard from '../../../components/ProfileCard';
-import DetailComponent from '../../../components/DetailComponent';
 const property = {
   title: "Beautiful Apartment",
   price: "$1500/month",
@@ -75,7 +74,20 @@ const DetailsScreen = () => {
             {property.description}
           </ThemedText>
         </ThemedView>
-        <DetailComponent/>
+        <ListItem.Accordion
+  content={
+    <>
+      <Icon name="place" size={30} />
+      <ListItem.Content>
+        <ListItem.Title>List Accordion</ListItem.Title>
+      </ListItem.Content>
+    </>
+  }
+  isExpanded={expanded}
+  onPress={() => {
+    setExpanded(!expanded);
+  }}
+></ListItem.Accordion>
         <ProfileCard/>
         <OpenHouseComponent />
         <ThemedView style={{ paddingHorizontal: 15, gap: 10 }}>

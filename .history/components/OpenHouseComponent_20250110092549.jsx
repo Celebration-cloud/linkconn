@@ -1,5 +1,5 @@
 import { Tab, TabView } from "@rneui/base";
-import React from "react";
+import React, { Fragment } from "react";
 import { View, Text, Button, StyleSheet, TouchableOpacity } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 import TabItem from "./TabItem"
@@ -9,52 +9,30 @@ import { ThemedText } from "./ThemedText";
 import { ThemedView } from "./ThemedView";
 
 const tabItems = ["Map view", "Schools", "Shop & Eat"];
-const schoolLocations = [ { latitude: 37.7749, longitude: -122.4194, title: 'School A' }, { latitude: 37.7599, longitude: -122.4279, title: 'School B' }, ]// Add more school locations here
 const OpenHouseComponent = () => {
   const [index, setIndex] = React.useState(0);
   const tabViews = [
     {
       content: (
-        <MapView
-          style={styles.map}
-          scrollEnabled={false}
-          zoomEnabled={false}
-          rotateEnabled={false}
-          initialRegion={{
-            latitude: 37.78825,
-            longitude: -122.4324,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
-          }}
-        >
-          <Marker coordinate={{ latitude: 37.78825, longitude: 122.4324 }} />
-        </MapView>
+        <View>
+          <View style={styles.overlay} pointerEvents="none" />
+          <MapView
+            style={styles.map}
+            scrollEnabled={false}
+            zoomEnabled={false}
+            initialRegion={{
+              latitude: 37.78825,
+              longitude: -122.4324,
+              latitudeDelta: 0.0922,
+              longitudeDelta: 0.0421,
+            }}
+          >
+            <Marker coordinate={{ latitude: 37.78825, longitude: 122.4324 }} />
+          </MapView>
+        </View>
       ),
     },
-    {
-      content: (
-        <MapView
-          style={styles.map}
-          initialRegion={{
-            latitude: 37.7749,
-            longitude: -122.4194,
-            latitudeDelta: 0.015,
-            longitudeDelta: 0.0121,
-          }}
-        >
-          {schoolLocations.map((school, index) => (
-            <Marker
-              key={index}
-              coordinate={{
-                latitude: school.latitude,
-                longitude: school.longitude,
-              }}
-              title={school.title}
-            />
-          ))}
-        </MapView>
-      ),
-    },
+    { content: <ThemedText>Schools Information</ThemedText> },
     { content: <ThemedText>Shop & Eat Information</ThemedText> },
   ];
 
@@ -73,10 +51,11 @@ const OpenHouseComponent = () => {
 };
 
 const styles = StyleSheet.create({
+  container: { flex: 1 },
   openHouseContainer: {
     padding: 16,
     gap: 10,
-    height: 300
+    height: 300,
   },
   header: {
     fontSize: 18,
@@ -92,7 +71,7 @@ const styles = StyleSheet.create({
   },
   map: {
     width: "90%",
-    height: Dimensions.get("window").height /4
+    height: Dimensions.get("window").height / 4,
   },
   tabView: {
     justifyContent: "center",
@@ -117,6 +96,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
   },
+  overlay: { ...StyleSheet.absoluteFillObject, backgroundColor: "transparent" },
 });
 
 export default OpenHouseComponent;

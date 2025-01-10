@@ -9,52 +9,30 @@ import { ThemedText } from "./ThemedText";
 import { ThemedView } from "./ThemedView";
 
 const tabItems = ["Map view", "Schools", "Shop & Eat"];
-const schoolLocations = [ { latitude: 37.7749, longitude: -122.4194, title: 'School A' }, { latitude: 37.7599, longitude: -122.4279, title: 'School B' }, ]// Add more school locations here
 const OpenHouseComponent = () => {
   const [index, setIndex] = React.useState(0);
   const tabViews = [
     {
       content: (
-        <MapView
+           <MapView
           style={styles.map}
           scrollEnabled={false}
           zoomEnabled={false}
-          rotateEnabled={false}
+          sc
           initialRegion={{
             latitude: 37.78825,
             longitude: -122.4324,
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421,
           }}
+          
         >
           <Marker coordinate={{ latitude: 37.78825, longitude: 122.4324 }} />
         </MapView>
+       
       ),
     },
-    {
-      content: (
-        <MapView
-          style={styles.map}
-          initialRegion={{
-            latitude: 37.7749,
-            longitude: -122.4194,
-            latitudeDelta: 0.015,
-            longitudeDelta: 0.0121,
-          }}
-        >
-          {schoolLocations.map((school, index) => (
-            <Marker
-              key={index}
-              coordinate={{
-                latitude: school.latitude,
-                longitude: school.longitude,
-              }}
-              title={school.title}
-            />
-          ))}
-        </MapView>
-      ),
-    },
+    { content: <ThemedText>Schools Information</ThemedText> },
     { content: <ThemedText>Shop & Eat Information</ThemedText> },
   ];
 

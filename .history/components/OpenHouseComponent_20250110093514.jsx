@@ -43,7 +43,7 @@ const OpenHouseComponent = () => {
           }}
         >
           {schoolLocations.map((school, index) => (
-            <Marker
+            <MapView.Marker
               key={index}
               coordinate={{
                 latitude: school.latitude,

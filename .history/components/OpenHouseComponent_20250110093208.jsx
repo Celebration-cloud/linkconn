@@ -15,46 +15,26 @@ const OpenHouseComponent = () => {
   const tabViews = [
     {
       content: (
-        <MapView
+           <MapView
           style={styles.map}
           scrollEnabled={false}
           zoomEnabled={false}
           rotateEnabled={false}
+
           initialRegion={{
             latitude: 37.78825,
             longitude: -122.4324,
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421,
           }}
+          
         >
           <Marker coordinate={{ latitude: 37.78825, longitude: 122.4324 }} />
         </MapView>
+       
       ),
     },
-    {
-      content: (
-        <MapView
-          style={styles.map}
-          initialRegion={{
-            latitude: 37.7749,
-            longitude: -122.4194,
-            latitudeDelta: 0.015,
-            longitudeDelta: 0.0121,
-          }}
-        >
-          {schoolLocations.map((school, index) => (
-            <Marker
-              key={index}
-              coordinate={{
-                latitude: school.latitude,
-                longitude: school.longitude,
-              }}
-              title={school.title}
-            />
-          ))}
-        </MapView>
-      ),
-    },
+    { content: <ThemedText>Schools Information</ThemedText> },
     { content: <ThemedText>Shop & Eat Information</ThemedText> },
   ];
 

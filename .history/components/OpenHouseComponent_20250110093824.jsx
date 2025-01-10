@@ -42,8 +42,8 @@ const OpenHouseComponent = () => {
             longitudeDelta: 0.0121,
           }}
         >
-          {schoolLocations.map((school, index) => (
-            <Marker
+          {/* {schoolLocations.map((school, index) => (
+            <MapView.Marker
               key={index}
               coordinate={{
                 latitude: school.latitude,
@@ -51,7 +51,7 @@ const OpenHouseComponent = () => {
               }}
               title={school.title}
             />
-          ))}
+          ))} */}
         </MapView>
       ),
     },

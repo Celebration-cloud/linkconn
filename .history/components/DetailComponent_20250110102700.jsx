@@ -2,31 +2,30 @@ import React, { useState } from "react";
 import { StyleSheet } from "react-native";
 import { ThemedView } from "./ThemedView";
 import { ListItem } from "@rneui/base";
+import { ThemedView } from "@/components/ThemedView";
+import { ThemedText } from "@/components/ThemedText";
 import { useThemeColor } from "@/hooks/useThemeColor";
 const DetailComponent = ({description}) => {
   const [expanded, setExpanded] = useState(false);
-const backgroundColor = useThemeColor([], "background")
-const textColor = useThemeColor([], "text")
+
   return (
     <ThemedView style={styles.container}>
       <ListItem.Accordion
         content={
           <>
-            <ListItem.Content style={{ backgroundColor: backgroundColor }}>
-              <ListItem.Title style={{ color: textColor }}>
-                View details
-              </ListItem.Title>
+            <ListItem.Content>
+              <ListItem.Title>View details</ListItem.Title>
             </ListItem.Content>
           </>
         }
-        style={{ backgroundColor: backgroundColor }}
+        style={{}}
         isExpanded={expanded}
         onPress={() => {
           setExpanded(!expanded);
         }}
       >
-        <ListItem style={{ backgroundColor: backgroundColor }}>
-          <ListItem.Content style={{ backgroundColor: backgroundColor }}>
+        <ListItem>
+          <ListItem.Content>
             <ThemedText>{description}</ThemedText>
           </ListItem.Content>
         </ListItem>

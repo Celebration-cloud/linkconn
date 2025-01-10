@@ -6,27 +6,25 @@ import { useThemeColor } from "@/hooks/useThemeColor";
 const DetailComponent = ({description}) => {
   const [expanded, setExpanded] = useState(false);
 const backgroundColor = useThemeColor([], "background")
-const textColor = useThemeColor([], "text")
+const textColor = useThemeColor([], "background")
   return (
     <ThemedView style={styles.container}>
       <ListItem.Accordion
         content={
           <>
-            <ListItem.Content style={{ backgroundColor: backgroundColor }}>
-              <ListItem.Title style={{ color: textColor }}>
-                View details
-              </ListItem.Title>
+            <ListItem.Content>
+              <ListItem.Title>View details</ListItem.Title>
             </ListItem.Content>
           </>
         }
-        style={{ backgroundColor: backgroundColor }}
+        style={{backgroundColor: backgroundColor}}
         isExpanded={expanded}
         onPress={() => {
           setExpanded(!expanded);
         }}
       >
-        <ListItem style={{ backgroundColor: backgroundColor }}>
-          <ListItem.Content style={{ backgroundColor: backgroundColor }}>
+        <ListItem>
+          <ListItem.Content>
             <ThemedText>{description}</ThemedText>
           </ListItem.Content>
         </ListItem>

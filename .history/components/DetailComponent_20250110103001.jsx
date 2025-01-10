@@ -12,10 +12,8 @@ const textColor = useThemeColor([], "text")
       <ListItem.Accordion
         content={
           <>
-            <ListItem.Content style={{ backgroundColor: backgroundColor }}>
-              <ListItem.Title style={{ color: textColor }}>
-                View details
-              </ListItem.Title>
+            <ListItem.Content style={{backgroundColor: backgroundColor}}>
+              <ListItem.Title style={{color: textColor}}>View details</ListItem.Title>
             </ListItem.Content>
           </>
         }
@@ -25,7 +23,7 @@ const textColor = useThemeColor([], "text")
           setExpanded(!expanded);
         }}
       >
-        <ListItem style={{ backgroundColor: backgroundColor }}>
+        <ListItem style={{backgroundColor: backgroundColor}}>
           <ListItem.Content style={{ backgroundColor: backgroundColor }}>
             <ThemedText>{description}</ThemedText>
           </ListItem.Content>

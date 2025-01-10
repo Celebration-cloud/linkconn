@@ -35,7 +35,7 @@ const textColor = useThemeColor([], "text")
         }
       >
         <ListItem containerStyle={{ backgroundColor: backgroundColor, padding: 0 }}>
-          <ListItem.Content style={{ backgroundColor: "grey", padding: 10}}>
+          <ListItem.Content style={{ backgroundColor: "grey", padding: 10, borderRadius: 10}}>
             <ThemedText>{description}</ThemedText>
           </ListItem.Content>
         </ListItem>

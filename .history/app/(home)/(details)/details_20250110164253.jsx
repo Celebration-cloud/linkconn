@@ -71,8 +71,11 @@ const DetailsScreen = () => {
           <ThemedText style={styles.address}>
             Address: {property.address}
           </ThemedText>
+          <ThemedText style={styles.description}>
+            {property.description}
+          </ThemedText>
         </ThemedView>
-        <DetailComponent description={property.description} />
+        <DetailComponent desc />
         <ProfileCard/>
         <OpenHouseComponent />
         <ThemedView style={{ paddingHorizontal: 15, gap: 10 }}>

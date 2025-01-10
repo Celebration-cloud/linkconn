@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { StyleSheet } from "react-native";
-import { Icon, ListItem } from "@rneui/base";
+import { ListItem } from "@rneui/base";
 import { ThemedView } from '@/components/ThemedView';
 import { ThemedText } from '@/components/ThemedText';
 import { useThemeColor } from '@/hooks/useThemeColor';
@@ -14,28 +14,23 @@ const textColor = useThemeColor([], "text")
       <ListItem.Accordion
         content={
           <>
-            <ListItem.Content>
-              <ListItem.Title>
+            <ListItem.Content style={{ backgroundColor: backgroundColor }}>
+              <ListItem.Title style={{ color: textColor }}>
                 View details
               </ListItem.Title>
             </ListItem.Content>
           </>
         }
-        containerStyle={{ backgroundColor: textColor, color: textColor }}
+        // containerStyle={{ backgroundColor: backgroundColor, color: textColor }}
         isExpanded={expanded}
         onPress={() => {
           setExpanded(!expanded);
         }}
-        Icon={<Icon name="chevron-forward" type="material-community" />}
-        expandIcon={
-          <Ionicons
-            name="chevron-down"
-            size={20}
-          />
-        }
+        Icon
+        expandIcon={<Ionicons name={expanded ? "chevron-down" :"chevron-forward"} size={20}/>}
       >
-        <ListItem containerStyle={{ backgroundColor: backgroundColor, padding: 0 }}>
-          <ListItem.Content style={{ backgroundColor: "grey", padding: 10}}>
+        <ListItem style={{ backgroundColor: backgroundColor }}>
+          <ListItem.Content style={{ backgroundColor: backgroundColor }}>
             <ThemedText>{description}</ThemedText>
           </ListItem.Content>
         </ListItem>

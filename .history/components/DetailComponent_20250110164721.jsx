@@ -15,13 +15,13 @@ const textColor = useThemeColor([], "text")
         content={
           <>
             <ListItem.Content>
-              <ListItem.Title>
+              <ListItem.Title style={{ color: textColor }}>
                 View details
               </ListItem.Title>
             </ListItem.Content>
           </>
         }
-        containerStyle={{ backgroundColor: textColor, color: textColor }}
+        containerStyle={{ backgroundColor: textColor }}
         isExpanded={expanded}
         onPress={() => {
           setExpanded(!expanded);
@@ -34,8 +34,8 @@ const textColor = useThemeColor([], "text")
           />
         }
       >
-        <ListItem containerStyle={{ backgroundColor: backgroundColor, padding: 0 }}>
-          <ListItem.Content style={{ backgroundColor: "grey", padding: 10}}>
+        <ListItem containerStyle={{ backgroundColor: backgroundColor }}>
+          <ListItem.Content style={{ backgroundColor: "grey", padding: 10, borderRadius: 10}}>
             <ThemedText>{description}</ThemedText>
           </ListItem.Content>
         </ListItem>

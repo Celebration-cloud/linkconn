@@ -11,8 +11,8 @@
     "newArchEnabled": true,
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "foregroundImage": "./assets/images/images/adaptive-icon.png",
+        "backgroundColor": "rgba(255, 255, 255, .34)"
       },
       "package": "com.celebration.linkconn",
       "runtimeVersion": {
@@ -27,7 +27,7 @@
           "image": "./assets/images/linkconn-icon.png",
           "imageWidth": 200,
           "resizeMode": "contain",
-          "backgroundColor": "rgba(255, 255, 255, .34)"
+          "backgroundColor": "#ffffff"
         }
       ],
       "expo-font",

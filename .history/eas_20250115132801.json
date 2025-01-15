@@ -1,0 +1,43 @@
+{
+  "cli": {
+    "version": ">= 14.2.0",
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "preview": {
+      "android": {
+        "buildType": "apk"
+      },
+      "channel": "preview"
+    },
+    "preview2": {
+      "android": {
+        "gradleCommand": ":app:assembleRelease"
+      },
+      "channel": "preview2"
+    },
+    "preview3": {
+      "developmentClient": true,
+      "channel": "preview3"
+    },
+    "preview4": {
+      "channel": "master",
+      "distribution": "internal"
+    },
+    "production": {
+      "autoIncrement": true,
+      "channel": "production"
+    },
+    "real-estate": {
+      "android": {
+        "buildType": "app-bundle",
+        "gradleCommand": ":app:assembleRelease",
+        "p"
+      },
+      "channel": "master"
+    }
+  },
+  "submit": {
+    "production": {}
+  }
+}

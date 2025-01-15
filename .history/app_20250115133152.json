@@ -21,7 +21,7 @@
       "runtimeVersion": {
         "policy": "appVersion"
       },
-      "enablePngCrunchInReleaseBuilds": false
+      "e"
     },
     "plugins": [
       "expo-router",

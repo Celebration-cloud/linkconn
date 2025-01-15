@@ -20,8 +20,8 @@
       "package": "com.celebration.linkconn",
       "runtimeVersion": {
         "policy": "appVersion"
-      },
-      "enablePngCrunchInReleaseBuilds": false
+      }
+      "en"
     },
     "plugins": [
       "expo-router",

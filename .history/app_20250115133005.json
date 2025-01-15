@@ -20,8 +20,7 @@
       "package": "com.celebration.linkconn",
       "runtimeVersion": {
         "policy": "appVersion"
-      },
-      "enablePngCrunchInReleaseBuilds": false
+      }
     },
     "plugins": [
       "expo-router",
@@ -40,6 +39,9 @@
         {
           "locationAlwaysAndWhenInUsePermission": "Allow $(PRODUCT_NAME) to use your location."
         }
+      ],
+      [
+        "expo"
       ]
     ],
     "experiments": {

@@ -14,14 +14,13 @@
     "newArchEnabled": true,
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/linkconn-icon.png",
-        "backgroundColor": "rgba(255, 255, 255, .34)"
+        "foregroundImage": "./assets/images/images",
+        "backgroundColor": "#ffffff"
       },
       "package": "com.celebration.linkconn",
       "runtimeVersion": {
         "policy": "appVersion"
-      },
-      "enablePngCrunchInReleaseBuilds": false
+      }
     },
     "plugins": [
       "expo-router",

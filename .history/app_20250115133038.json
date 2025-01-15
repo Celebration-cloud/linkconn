@@ -20,10 +20,17 @@
       "package": "com.celebration.linkconn",
       "runtimeVersion": {
         "policy": "appVersion"
-      },
-      "enablePngCrunchInReleaseBuilds": false
+      }
     },
     "plugins": [
+      [
+      "expo-build-properties",
+      {
+        "android": {
+          "enablePngCrunchInReleaseBuilds": false
+        }
+      }
+    ]
       "expo-router",
       [
         "expo-splash-screen",

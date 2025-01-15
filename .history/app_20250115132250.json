@@ -15,13 +15,12 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/linkconn-icon.png",
-        "backgroundColor": "rgba(255, 255, 255, .34)"
+        "backgroundColor": "rgba"
       },
       "package": "com.celebration.linkconn",
       "runtimeVersion": {
         "policy": "appVersion"
-      },
-      "enablePngCrunchInReleaseBuilds": false
+      }
     },
     "plugins": [
       "expo-router",

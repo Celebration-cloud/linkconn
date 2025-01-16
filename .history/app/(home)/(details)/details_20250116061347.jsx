@@ -1,10 +1,10 @@
 import React from 'react'
 
-import { Dimensions, ScrollView, StyleSheet, View } from 'react-native';
+import { Dimensions, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native'
 
 import { Stack, useRouter } from 'expo-router';
 
-import { Button, Card } from '@rneui/base';
+import { Button, Card, Tab, TabView } from '@rneui/base';
 import { Ionicons } from '@expo/vector-icons';
 
 import { ThemedText } from "@/components/ThemedText";

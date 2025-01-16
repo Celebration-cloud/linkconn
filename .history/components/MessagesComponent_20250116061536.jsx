@@ -1,9 +1,13 @@
-import { Dimensions, StyleSheet } from 'react-native';
+import React, { Fragment } from 'react'
+
+import { Dimensions, StyleSheet, Text, View } from 'react-native'
 
 import { router } from 'expo-router';
 
 import { Card } from '@rneui/base';
 import { TouchableRipple } from 'react-native-paper';
+
+import { useThemeColor } from "@/hooks/useThemeColor";
 
 import { ThemedText } from "./ThemedText"
 import { ThemedView } from "./ThemedView";

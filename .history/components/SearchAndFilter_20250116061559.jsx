@@ -1,14 +1,9 @@
 import { StyleSheet } from 'react-native'
-
-import { useRouter } from 'expo-router';
-
-import { Ionicons } from '@expo/vector-icons';
-
-import { useThemeColor } from '@/hooks/useThemeColor';
-
-import SearchInput from "./SearchInput"
 import { ThemedView } from './ThemedView';
-
+import { Ionicons } from '@expo/vector-icons';
+import { useThemeColor } from '@/hooks/useThemeColor';
+import SearchInput from "./SearchInput"
+import { useRouter } from 'expo-router';
 const SearchAndFilter = () => {
   const router = useRouter()
    const iconColor = useThemeColor([], "icon");

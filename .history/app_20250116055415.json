@@ -12,7 +12,7 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "rgba(255, 255, 255, .34)"
       },
       "package": "com.celebration.linkconn",
       "runtimeVersion": {
@@ -24,9 +24,10 @@
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/splash-icon.png",
+          "image": "./assets/images/linkconn-icon.png",
           "imageWidth": 200,
-          "backgroundColor": "#0a7ea4"
+          "resizeMode": "contain",
+          "backgroundColor": "#ffffff"
         }
       ],
       "expo-font",

@@ -1,18 +1,26 @@
-import React, { useEffect, useState } from 'react'
-
-import { Alert, StyleSheet, ToastAndroid } from 'react-native';
-
+import React, { useEffect, useState } from 'react';
+import { Alert, StyleSheet, Text, ToastAndroid, View } from 'react-native';
 import { Stack } from 'expo-router';
-
 import * as Location from "expo-location";
-import MapView, { Marker } from 'react-native-maps';
 import { ActivityIndicator } from 'react-native-paper';
+import { Tab } from '@rneui/base';
+import { MapContainer, TileLayer, Marker } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
+import L from 'leaflet';
 
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { useThemeColor } from "@/hooks/useThemeColor";
 
 import SearchHeader from '../../../../components/SearchHeader';
+
+// Fix leaflet's default icon issue with React-Leaflet
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
+  iconUrl: require('leaflet/dist/images/marker-icon.png'),
+  shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
+});
 
 const SearchScreen = () => {
   const [index, setIndex] = React.useState(0);
@@ -28,7 +36,7 @@ const SearchScreen = () => {
   const latitudeDelta = maxLat - minLat + 0.1
   const longitudeDelta = maxLong - minLong + 0.1
   console.log(`latDelta: ${latitudeDelta} - lngDelta: ${longitudeDelta} `)
-  // console.log(`minLat: ${minLat} -  maxLat: ${maxLat}`)
+
   const handleLocation = async () => {
     const { status } = await Location.requestForegroundPermissionsAsync();
     if (status !== "granted") {
@@ -67,18 +75,17 @@ const SearchScreen = () => {
     <ThemedView style={styles.container}>
       <Stack.Screen options={{ header: () => <SearchHeader /> }} />
       {location.latitude && location.longitude && (
-        <MapView
-          style={{...styles.mapView, backgroundColor: background, color: tint}}
-          rotateEnabled={true}
-          initialRegion={{
-            latitude: location.latitude,
-            longitude: location.longitude,
-            latitudeDelta: latitudeDelta,
-            longitudeDelta: longitudeDelta,
-          }}
+        <MapContainer
+          center={[location.latitude, location.longitude]}
+          zoom={13}
+          style={styles.mapView}
         >
-          <Marker coordinate={{ ...location }} title="Your Location" />
-        </MapView>
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          />
+          <Marker position={[location.latitude, location.longitude]} />
+        </MapContainer>
       )}
       {errorMsg && <ThemedText>No Location</ThemedText>}
       {loading && !errorMsg && <ActivityIndicator animating={true} />}

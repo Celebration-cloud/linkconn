@@ -1,12 +1,15 @@
-import { Dimensions, ScrollView, StyleSheet, Text, View } from 'react-native'
+import { Dimensions, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { ThemedView } from "@/components/ThemedView";
 import { ThemedText } from "@/components/ThemedText";
 import { useThemeColor } from "@/hooks/useThemeColor";
-import { Button, Card } from '@rneui/base';
-import { Stack } from 'expo-router';
+import { Button, Card, Tab, TabView } from '@rneui/base';
+import { Stack, useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
-import MapView from 'react-native-maps';
+// import MapView, { Marker } from 'react-native-maps';
+import OpenHouseComponent from '../../../components/OpenHouseComponent';
+import ProfileCard from '../../../components/ProfileCard';
+import DetailComponent from '../../../components/DetailComponent';
 const property = {
   title: "Beautiful Apartment",
   price: "$1500/month",
@@ -17,6 +20,12 @@ const property = {
 
 const DetailsScreen = () => {
    const textColor = useThemeColor([], "text")
+   const router = useRouter()
+   const [index, setIndex] = React.useState(0)
+
+   const handleBack = () => { 
+    router.dismiss()
+    };
   return (
     <ScrollView contentContainerStyle={styles.scrollContainer}>
       <ThemedView style={styles.container}>
@@ -24,7 +33,7 @@ const DetailsScreen = () => {
           options={{
             headerLeft: () => (
               <View style={styles.headerLeft}>
-                <Button size="md" color="white" radius="xl">
+                <Button size="md" color="white" radius="xl" onPress={handleBack}>
                   <Ionicons name="chevron-back-outline" size={25} />
                 </Button>
               </View>
@@ -50,7 +59,7 @@ const DetailsScreen = () => {
           resizeMode="stretch"
           style={styles.image}
         />
-        <ThemedView>
+        <ThemedView style={{ paddingHorizontal: 15 }}>
           <ThemedText style={styles.title}>{property.title}</ThemedText>
           {/* <Carousel
           data={property.images}
@@ -62,63 +71,24 @@ const DetailsScreen = () => {
           <ThemedText style={styles.address}>
             Address: {property.address}
           </ThemedText>
-          <ThemedText style={styles.description}>
-            {property.description}
-          </ThemedText>
         </ThemedView>
-        <View style={styles.container}>
-          {" "}
-          <Text style={styles.header}>Location on Maps</Text>{" "}
-          <Tab value={index} onChange={setIndex}>
-            {" "}
-            <Tab.Item title="Map view" /> <Tab.Item title="Schools" />{" "}
-            <Tab.Item title="Shop & Eat" />{" "}
-          </Tab>{" "}
-          <TabView
-            value={index}
-            onChange={setIndex}
-            style={styles.mapContainer}
-          >
-            {" "}
-            <TabView.Item style={styles.mapView}>
-              {" "}
-              <MapView
-                style={styles.map}
-                initialRegion={{
-                  latitude: 37.78825,
-                  longitude: -122.4324,
-                  latitudeDelta: 0.0922,
-                  longitudeDelta: 0.0421,
-                }}
-              >
-                {" "}
-                <Marker
-                  coordinate={{ latitude: 37.78825, longitude: -122.4324 }}
-                />{" "}
-              </MapView>{" "}
-            </TabView.Item>{" "}
-            <TabView.Item style={styles.tabView}>
-              {" "}
-              <Text>Schools Information</Text>{" "}
-            </TabView.Item>{" "}
-            <TabView.Item style={styles.tabView}>
-              {" "}
-              <Text>Shop & Eat Information</Text>{" "}
-            </TabView.Item>{" "}
-          </TabView>{" "}
-          <Text style={styles.openHouseHeader}>Open House</Text>{" "}
-          <Text>Sun, Jul 2</Text> <Text>11:00 AM - 1:00 PM</Text>{" "}
-          <TouchableOpacity style={styles.virtualTourButton}>
-            {" "}
-            <Text style={styles.virtualTourText}>See Virtual Tour</Text>{" "}
-          </TouchableOpacity>{" "}
-          <View style={styles.buttonContainer}>
-            {" "}
-            <Button title="Call" onPress={() => {}} />{" "}
-            <Button title="Message" onPress={() => {}} />{" "}
-            <Button title="Tour" onPress={() => {}} />{" "}
-          </View>{" "}
-        </View>
+        <DetailComponent description={property.description} />
+        <ProfileCard/>
+        <OpenHouseComponent />
+        <ThemedView style={{ paddingHorizontal: 15, gap: 10 }}>
+          <ThemedText style={styles.openHouseHeader}>Open House</ThemedText>
+          <ThemedText>Sun, Jul 2</ThemedText>
+          <ThemedText>11:00 AM - 1:00 PM</ThemedText>
+          <Button title="See Virtual Tour" radius="lg" onPress={() => {}} />
+          <ThemedView style={styles.buttonContainer}>
+            <Button
+              title="Chat with Agent"
+              buttonStyle={styles.btn}
+              radius="lg"
+              onPress={() => {}}
+            />
+          </ThemedView>
+        </ThemedView>
       </ThemedView>
     </ScrollView>
   );
@@ -129,10 +99,8 @@ export default DetailsScreen
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    gap: 20
-  },
-  scrollContainer: {
-    flex: 1, 
+    gap: 20,
+    paddingBottom: 20
   },
   image: {
     borderRadius: 10,
@@ -143,4 +111,30 @@ const styles = StyleSheet.create({
   price: { fontSize: 18, fontWeight: "bold", marginVertical: 8 },
   address: { fontSize: 16, marginVertical: 4 },
   description: { fontSize: 14, marginVertical: 4 },
+  openHouseHeader: {
+    fontSize: 16,
+    fontWeight: "bold",
+    marginBottom: 4,
+  },
+  virtualTourButton: {
+    backgroundColor: "#e0e0e0",
+    padding: 10,
+    borderRadius: 5,
+    marginVertical: 10,
+  },
+  virtualTourText: {
+    color: "#007bff",
+    textAlign: "center",
+  },
+  buttonContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginTop: 50,
+    borderTopWidth: 1,
+    borderTopColor: "rgba(255, 255, 255,.43)",
+    paddingTop: 15
+  },
+  btn: {
+    width: Dimensions.get("window").width /1.1
+  },
 });

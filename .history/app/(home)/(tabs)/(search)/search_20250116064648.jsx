@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 
-import { Alert, StyleSheet, ToastAndroid } from 'react-native';
+import { Alert, StyleSheet, Text, ToastAndroid, View } from 'react-native'
 
 import { Stack } from 'expo-router';
 
 import * as Location from "expo-location";
 import MapView, { Marker } from 'react-native-maps';
 import { ActivityIndicator } from 'react-native-paper';
+import { Tab } from '@rneui/base';
 
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";

@@ -22,7 +22,7 @@ const Index = () => {
           <Image
             style={styles.image}
             resizeMode="cover"
-            source={require("@/assets/images/Linkcon_Logo.jpg")}
+            source={require("@/assets/images/L")}
           />
         </ThemedView>
 

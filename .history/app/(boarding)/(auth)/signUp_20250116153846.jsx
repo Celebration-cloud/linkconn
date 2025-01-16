@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import { Pressable, ScrollView, StyleSheet, } from 'react-native';
+import { Pressable, ScrollView, StyleSheet } from "react-native";
 
-import { useRouter } from 'expo-router';
+import { useRouter } from "expo-router";
 
-import { Button, Divider, Image } from '@rneui/base';
-import { Ionicons } from '@expo/vector-icons';
-import { RadioButton, TextInput } from 'react-native-paper';
-import { useForm, Controller } from 'react-hook-form';
+import { Button, Divider, Image } from "@rneui/base";
+import { Ionicons } from "@expo/vector-icons";
+import { RadioButton, TextInput } from "react-native-paper";
+import { useForm, Controller } from "react-hook-form";
 import { ThemedView } from "@/components/ThemedView";
 import { ThemedText } from "@/components/ThemedText";
 import { useThemeColor } from "@/hooks/useThemeColor";
@@ -22,9 +22,10 @@ const loginOptions = [
 
 const LoginScreen = () => {
   const router = useRouter();
-  const [passwordVisible, setPasswordVisible] = useState(false);
-const iconColor = useThemeColor([], "icon")
-const tintColor = useThemeColor([], "tint")
+  const [passwordVisible, setPasswordVisible] = useState(true);
+  const iconColor = useThemeColor([], "icon")
+  const tintColor = useThemeColor([], "tint")
+
   const {
     control,
     handleSubmit,
@@ -32,25 +33,25 @@ const tintColor = useThemeColor([], "tint")
     formState: { errors },
   } = useForm({
     defaultValues: {
+      name: "",
       email: "",
       password: "",
+      checked: false,
       mode: "",
-    },
+    }
   });
 
   const handleOptionLogin = (method) => {
     console.log(method);
-    router.replace("(home)");
   };
 
   const handleSwitch = () => {
-    router.navigate("/signUp");
+    router.dismiss()
   };
 
   const onSubmit = (data) => {
     console.log(data);
     reset()
-    router.replace("(home)")
   };
 
   return (
@@ -61,7 +62,7 @@ const tintColor = useThemeColor([], "tint")
             <Image
               style={styles.image}
               resizeMode="cover"
-              source={require("@/assets/images/Linkcon_Logo.jpg")}
+              source={require("@/assets/images/Linkcon_Logo.jpeg")}
             />
           </ThemedView>
           <ThemedView style={styles.details}>
@@ -71,8 +72,40 @@ const tintColor = useThemeColor([], "tint")
         </ThemedView>
 
         <ThemedView style={styles.bottomContent}>
-          <ThemedText style={styles.or}>Sign In</ThemedText>
+          <ThemedText style={styles.or}>
+            Register and we'll get started.
+          </ThemedText>
           <ThemedView style={styles.form}>
+            <Controller
+              control={control}
+              rules={{
+                required: "Full Name is required",
+                minLength: {
+                  value: 3,
+                  message: "Full Name must be at least 3 characters long",
+                },
+              }}
+              render={({ field: { onChange, value } }) => (
+                <ThemedView>
+                  <TextInput
+                    style={styles.input}
+                    onChangeText={onChange}
+                    label="Full Name"
+                    value={value}
+                    error={errors.name}
+                    mode="outlined"
+                    outlineStyle={styles.inputOutline}
+                    placeholder="Enter your full name"
+                  />
+                  {errors.name && (
+                    <ThemedText style={styles.errorText}>
+                      {errors.name.message}
+                    </ThemedText>
+                  )}
+                </ThemedView>
+              )}
+              name="name"
+            />
             <ThemedView>
               <Controller
                 control={control}
@@ -178,15 +211,46 @@ const tintColor = useThemeColor([], "tint")
               name="mode"
             />
 
+            <ThemedView>
+              <Controller
+                control={control}
+                rules={{ required: "Accept terms and conditions" }}
+                render={({ field: { onChange, value } }) => (
+                  <ThemedView style={styles.radioContainer}>
+                    <RadioButton
+                      value={value}
+                      status={value === true ? "checked" : "unchecked"}
+                      onPress={() => onChange((checked) => !checked)}
+                    />
+                    <ThemedText style={styles.policy}>
+                      I accept Linkconn{" "}
+                      <ThemedText style={styles.lined}>Terms of Use</ThemedText>{" "}
+                      and{" "}
+                      <ThemedText style={styles.lined}>
+                        Privacy Policy
+                      </ThemedText>
+                    </ThemedText>
+                  </ThemedView>
+                )}
+                name="checked"
+              />
+              {errors.checked && (
+                <ThemedText
+                  style={{ ...styles.errorText, textAlign: "center" }}
+                >
+                  {errors.checked.message}
+                </ThemedText>
+              )}
+            </ThemedView>
             <Button
-              title="Login"
+              title="Submit"
               onPress={handleSubmit(onSubmit)}
               radius="lg"
             />
             <ThemedText style={styles.policy}>
-              Don't have an account?
+              Already have an account?
               <Pressable onPress={handleSwitch}>
-                <ThemedText style={styles.lined}> SignUp</ThemedText>
+                <ThemedText style={styles.lined}> Login</ThemedText>
               </Pressable>
             </ThemedText>
           </ThemedView>
@@ -205,7 +269,7 @@ const tintColor = useThemeColor([], "tint")
                     size={18}
                     color={iconColor}
                   />
-                  {"  "}
+                  {"   "}
                   <ThemedText style={styles.loginOptText}>
                     {loginOptions.title}
                   </ThemedText>
@@ -217,7 +281,7 @@ const tintColor = useThemeColor([], "tint")
       </ThemedView>
     </ScrollView>
   );
-}
+};
 
 export default LoginScreen;
 
@@ -225,7 +289,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 20,
-    paddingVertical: 50,
+    paddingVertical: 30,
     gap: 30,
   },
   company: {
@@ -255,6 +319,10 @@ const styles = StyleSheet.create({
   subTitle: {
     fontSize: 14,
     textAlign: "center",
+  },
+  radioContainer: {
+    flexDirection: "row",
+    alignItems: "center",
   },
   errorText: {
     color: "red",
@@ -304,10 +372,11 @@ const styles = StyleSheet.create({
   radioContainer: {
     flexDirection: "row",
     alignItems: "center",
-    marginVertical: 5,
+    marginVertical: 2,
+    marginBottom: -12,
   },
   mode: {
     flexDirection: "row",
-    justifyContent: "space-around"
+    justifyContent: "space-around",
   },
 });

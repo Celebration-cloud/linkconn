@@ -5,13 +5,13 @@
     "version": "1.0.4",
     "orientation": "portrait",
     "platforms": ["android", "ios"],
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/images/",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "foregroundImage": "./assets/images/linkconn_icon.png",
         "backgroundColor": "#ffffff"
       },
       "package": "com.celebration.linkconn",

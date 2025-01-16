@@ -5,19 +5,14 @@
     "version": "1.0.4",
     "orientation": "portrait",
     "platforms": ["android", "ios"],
-    "icon": "./assets/images/Linkcon_Logo.jpg",
+    "icon": "./assets/images/",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "android": {
-      "splash": {
-        "image": "./assets/images/splash-icon.png",
-        "resizeMode": "contain",
-        "backgroundColor": "#0a7ea4"
-      },
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/Linkcon_Logo.jpg",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#0a7ea4"
       },
       "package": "com.celebration.linkconn",
       "runtimeVersion": {
@@ -29,7 +24,8 @@
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/Linkcon_Logo.jpg",
+          "image": "./assets/images/splash-icon.png",
+          "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#0a7ea4"
         }

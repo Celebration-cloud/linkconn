@@ -61,11 +61,12 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   imageContainer: {
-    width: 90,
+    width: 0,
     height: 100,
     alignSelf: "center",
     borderRadius: 30,
     overflow: "hidden",
+    
   },
   top: {
     gap: 20,

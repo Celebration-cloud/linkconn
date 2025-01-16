@@ -66,6 +66,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     borderRadius: 30,
     overflow: "hidden",
+    
   },
   top: {
     gap: 20,

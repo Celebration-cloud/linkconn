@@ -232,7 +232,7 @@ const styles = StyleSheet.create({
     gap: 20,
   },
   imageContainer: {
-    width: 90,
+    width: ,
     height: 100,
     alignSelf: "center",
     borderRadius: 30,

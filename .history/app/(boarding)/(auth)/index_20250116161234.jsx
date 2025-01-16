@@ -232,8 +232,8 @@ const styles = StyleSheet.create({
     gap: 20,
   },
   imageContainer: {
-    width: 90,
-    height: 100,
+    width: 100,
+    height: 10,
     alignSelf: "center",
     borderRadius: 30,
     overflow: "hidden",

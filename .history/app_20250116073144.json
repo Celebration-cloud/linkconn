@@ -5,13 +5,13 @@
     "version": "1.0.4",
     "orientation": "portrait",
     "platforms": ["android", "ios"],
-    "icon": "./assets/images/linkconn_icon.png",
+    "icon": "./assets/images/linkconn-icon.pn",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/linkconn_icon.png",
+        "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
       "package": "com.celebration.linkconn",
@@ -26,8 +26,7 @@
         {
           "image": "./assets/images/splash-icon.png",
           "imageWidth": 200,
-          "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
+          "backgroundColor": "#0a7ea4"
         }
       ],
       "expo-font",

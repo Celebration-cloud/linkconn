@@ -1,0 +1,23 @@
+import { StyleSheet, Text, View } from 'react-native'
+import React from 'react'
+import { ThemedView } from "@/components/ThemedView";
+import { ThemedText } from "@/components/ThemedText";
+import { useThemeColor } from "@/hooks/useThemeColor";
+import { Stack } from 'expo-router';
+const ContactAgentScreen = () => {
+  return (
+    <ThemedView style={styles.container}>
+        <Stack.Screen options={{title: "Jacob"}}/>
+      <ThemedText>ContactAgentScreen</ThemedText>
+      <Messa
+    </ThemedView>
+  )
+}
+
+export default ContactAgentScreen
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1
+    }
+})
